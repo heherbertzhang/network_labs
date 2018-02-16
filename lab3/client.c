@@ -39,16 +39,16 @@ int main(int argc, char *argv[])
   int msg1_size = 1000;
   char msg1[msg1_size+1];
   fillBuff(msg1, msg1_size);
-  float RTT1 = getRTT(sockfd, msg1, res); // 2 bytes = 16 bits
+  float RTT1 = getRTT(sockfd, msg1, res); 
   printf("RTT is %f\n", RTT1);
   int msg2_size = 1050;
   char msg2[msg2_size+1];
   fillBuff(msg2, msg2_size);
-  float RTT2 = getRTT(sockfd, msg2, res); // 20 bytes = 160 bits 
+  float RTT2 = getRTT(sockfd, msg2, res);
   printf("RTT is %f\n", RTT2);
   // RTT / 2 = transmission time + propagation time
-  // RTT2/2 - RTT1/2 = transmission time for 20-2 bytes = 144bits
-  // transmission rate = 144bits / timespent
+  // RTT2/2 - RTT1/2 = transmission time for msg2-msg1
+  // transmission rate = bits / timespent
   // propatation delay = RTT/2 - transmission time
   float R = (msg2_size-msg1_size)*8 / ((float)(RTT2-RTT1)/2.0);
   float t_prop = RTT1/2.0 - msg1_size*8.0/R;
