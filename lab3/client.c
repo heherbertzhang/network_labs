@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 }
 
 float getRTT(int sockfd, char* msg) {
-  size_t BUFSIZE = 100000;
+  size_t BUFSIZE = 1000;
   int bytes_sent, bytes_received;
   struct timeval curtime, echotime;
   char buffer[BUFSIZE];
