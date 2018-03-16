@@ -1,0 +1,4 @@
+#Clara Siu, 996161004
+#He Zhang, 1000347546
+
+The 'select()' system call was used to handle the concurrency. The server keeps a set of sockets from different clients, and loops through the set to perform various functions for each client. On the client side, the client first checks that its socket has been added to the set and for any messages passed by the server. It takes a command from the user and then sends it to the server. This method (the server passing all messages) minimizes the number of connections, but would be slower as the client would have to wait until the server loops to it.
